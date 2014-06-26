@@ -11,20 +11,15 @@
 |
 */
 
-// Route::get('/rolldice', function getInteger()
-// {
-// 	$random = rand(1,6);
-// 	return rand(1,6);
-// });
-
+// rolldice example
 
 Route::get('/rolldice/{guess}', function($guess)
 {
 
-	if(! is_numeric($guess))
-	{
-		return Redirect::to('/rolldice');
-	}
+	// if(! is_numeric($guess))
+	// {
+	// 	return Redirect::to('/rolldice');
+	// }
 	// if ($guess == 'random')
  //    {
  //        return Redirect::to('/');
@@ -42,4 +37,17 @@ Route::get('/rolldice/{guess}', function($guess)
 
  });
 
+//resume and portfolio blog
 
+Route::get('/sayhello/{name}', function($name)
+{
+    if ($name == "Jason")
+    {
+        return Redirect::to('/');
+    }
+    else
+    {
+        $data = array('name' => $name);
+        return View::make('my-first-view')->with($data);
+    }
+});
