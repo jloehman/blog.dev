@@ -10,18 +10,31 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/', function()
-{
-    return View::make('temp.my-first-view');
-});
 
-Route::get('/resume', function()
-{
-    return "This is my resume";
-});
+// Route::get('/rolldice', function getInteger()
+// {
+// 	$random = rand(1,6);
+// 	return rand(1,6);
+// });
 
-Route::get('/portfolio', function()
+
+Route::get('/rolldice/{guess}', function($guess)
 {
-    return "This is my port fo lio";
-});
+	// if ($guess == 'random')
+ //    {
+ //        return Redirect::to('/');
+ //    }
+ //    else
+ //    {
+	$random = rand(1,6);
+	$data = array
+	(
+		'random' => $random, 
+		'guess' => $guess
+	);
+
+ 	return View::make('temp.roll-dice')->with($data);
+
+ });
+
 
