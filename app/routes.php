@@ -20,6 +20,11 @@
 
 Route::get('/rolldice/{guess}', function($guess)
 {
+
+	if(! is_numeric($guess))
+	{
+		return Redirect::to('/rolldice');
+	}
 	// if ($guess == 'random')
  //    {
  //        return Redirect::to('/');
