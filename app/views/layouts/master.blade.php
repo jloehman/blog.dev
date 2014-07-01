@@ -5,5 +5,8 @@
 </head>
 <body>
     @yield('content')
+
+<!--     @yield('bottomscript')
+ -->
 </body>
 </html>
