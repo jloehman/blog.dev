@@ -12,6 +12,21 @@
 */
 
 // rolldice example
+Route::get('/', function(){
+	return View::make('hello');
+});
+
+Route::resource('posts', 'PostsController');
+
+route::get('/login', 'HomeController@showLogin');
+route::post('/login', 'HomeController@doLogin');
+route::get('/logout', 'HomeController@logout');
+
+//chris example
+route::get('/test', function()
+{
+	return User::find(3)->posts()->orderBy('posts', 'desc')->get();
+});
 
 Route::get('/', 'HomeController@showWelcome');
 
@@ -31,9 +46,8 @@ Route::get('/rolldice/{guess}', function($guess)
 
 //resume and portfolio blog
 
-//Route::get('/sayhello/{name}', 'HomeController@sayHello');
+Route::get('/sayhello/{name}', 'HomeController@sayHello');
 
-Route::resource('posts', 'PostsController');
 
 
 
